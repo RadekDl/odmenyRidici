@@ -1,18 +1,18 @@
 package com.radek;
 
-public class Ridici {
+public class Ridic {
     private String jmeno;
     private String prijmeni;
-    private String kartaRidiceCislo;
+    private String ujeteKm;
     private Auto auto;
 
-    public Ridici(String jmeno, String prijmeni, String kartaRidiceCislo, Auto auto) {
+    public Ridic(String jmeno, String prijmeni, String ujeteKm, Auto auto) {
         this.jmeno = jmeno;
         this.prijmeni = prijmeni;
-        this.kartaRidiceCislo = kartaRidiceCislo;
+        this.ujeteKm = ujeteKm;
         this.auto = auto;
     }
-    public Ridici(String prijmeni){
+    public Ridic(String prijmeni){
         this("není",prijmeni,"není",null);
     }
 
@@ -24,12 +24,12 @@ public class Ridici {
         return prijmeni;
     }
 
-    public String getKartaRidiceCislo() {
-        return kartaRidiceCislo;
+    public String getUjeteKm() {
+        return ujeteKm;
     }
 
-    public void setKartaRidiceCislo(String kartaRidiceCislo) {
-        this.kartaRidiceCislo = kartaRidiceCislo;
+    public void setUjeteKm(String ujeteKm) {
+        this.ujeteKm = ujeteKm;
     }
 
     public Auto getAuto() {
