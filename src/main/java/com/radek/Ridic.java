@@ -2,33 +2,27 @@ package com.radek;
 
 public class Ridic {
     private String jmeno;
-    private String prijmeni;
-    private String ujeteKm;
+
+    private double ujeteKm;
     private Auto auto;
 
-    public Ridic(String jmeno, String prijmeni, String ujeteKm, Auto auto) {
+    public Ridic(String jmeno, double ujeteKm, Auto auto) {
         this.jmeno = jmeno;
-        this.prijmeni = prijmeni;
         this.ujeteKm = ujeteKm;
         this.auto = auto;
-    }
-    public Ridic(String prijmeni){
-        this("není",prijmeni,"není",null);
     }
 
     public String getJmeno() {
         return jmeno;
     }
 
-    public String getPrijmeni() {
-        return prijmeni;
-    }
 
-    public String getUjeteKm() {
+
+    public double getUjeteKm() {
         return ujeteKm;
     }
 
-    public void setUjeteKm(String ujeteKm) {
+    public void setUjeteKm(double ujeteKm) {
         this.ujeteKm = ujeteKm;
     }
 

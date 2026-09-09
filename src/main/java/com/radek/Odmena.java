@@ -1,21 +1,25 @@
 package com.radek;
 
 public class Odmena {
-    private double normaSpotreby;
+    private double odmena;
     private Ridic ridic;
     private String mesic;
 
-    public Odmena(double normaSpotreby, Ridic ridic,String mesic) {
-        this.normaSpotreby = normaSpotreby;
+    public Odmena(double odmena, Ridic ridic,String mesic) {
+        this.odmena = odmena;
         this.ridic = ridic;
         this.mesic = mesic;
     }
 
-    public double getNormaSpotreby() {
-        return normaSpotreby;
+    public double getOdmena() {
+        return odmena;
     }
 
     public Ridic getRidic() {
         return ridic;
+    }
+
+    public String getMesic() {
+        return mesic;
     }
 }
