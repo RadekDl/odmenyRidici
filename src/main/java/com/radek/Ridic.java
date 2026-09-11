@@ -30,5 +30,9 @@ public class Ridic {
         return auto;
     }
 
-
+    @Override
+    public String toString() {
+        return String.format("%-25s %10.2f km   %s",
+                jmeno, ujeteKm, auto);
+    }
 }

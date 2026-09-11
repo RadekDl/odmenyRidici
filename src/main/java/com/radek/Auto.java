@@ -25,4 +25,10 @@ public class Auto {
     public String getInterniCislo() {
         return interniCislo;
     }
+
+    @Override
+    public String toString() {
+        return String.format("%-10s %-25s %s",
+                spz, model, interniCislo);
+    }
 }
