@@ -2,7 +2,6 @@ package com.radek;
 
 public class Ridic {
     private String jmeno;
-
     private double ujeteKm;
     private Auto auto;
 
