@@ -30,8 +30,9 @@ public class Main {
 
 //        Ridic ridic = managerSpotreby.najdiRidiceDleJmena("Dlouhý Roman");
 //        System.out.println(ridic);
-        managerSpotreby.vypocetOdmenVsechRidicu("září");
+        managerSpotreby.vypocetOdmenVsechRidicu("srpen");
         managerSpotreby.vypisOdmeny();
+        managerSpotreby.vypisOdmenyDoSouboru("odmeny.csv");
     }
 
 

@@ -309,13 +309,13 @@ public class ManagerSpotreby {
 
 
         int index;
-        if (tonaz <= Setting.VAHA_NAKLADU_B) {
+        if (tonaz < Setting.VAHA_NAKLADU_B) {
             index = 0;
-        } else if (tonaz <= Setting.VAHA_NAKLADU_D) {
+        } else if (tonaz < Setting.VAHA_NAKLADU_D) {
             index = 2;
-        } else if (tonaz <= Setting.VAHA_NAKLADU_F) {
+        } else if (tonaz < Setting.VAHA_NAKLADU_F) {
             index = 4;
-        } else if (tonaz <= Setting.VAHA_NAKLADU_H) {
+        } else if (tonaz < Setting.VAHA_NAKLADU_H) {
             index = 6;
         } else {
             index = 8;
@@ -408,9 +408,42 @@ public class ManagerSpotreby {
         for (Odmena o : odmenaList) {
             System.out.println(o);
         }
+
     }
 
+    public void vypisOdmenyDoSouboru(String cesta) {
+        Collator czechCollator = Collator.getInstance(new Locale("cs", "CZ"));
+        odmenaList.sort((o1, o2) -> czechCollator.compare(
+                o1.getRidic().getJmeno(),
+                o2.getRidic().getJmeno()));
 
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(cesta))) {
+            writer.write("Jméno;Odměna;Měsíc;Tonáž;Spotřeba;NormaA;NormaB;Rozdíl;UjetéKm");
+            writer.newLine();
+
+            for (Odmena o : odmenaList) {
+                String radek = o.getRidic().getJmeno() + ";"
+                        + format(o.getOdmena()) + ";"
+                        + o.getMesic() + ";"
+                        + format(o.getTonaz()) + ";"
+                        + format(o.getSpotreba()) + ";"
+                        + format(o.getNormaA()) + ";"
+                        + format(o.getNormaB()) + ";"
+                        + format(o.getRozdil()) + ";"
+                        + format(o.getRidic().getUjeteKm());
+                writer.write(radek);
+                writer.newLine();
+            }
+
+            System.out.println("Export do souboru " + cesta + " proběhl úspěšně.");
+        } catch (IOException e) {
+            System.out.println("Chyba při zápisu do souboru: " + e.getMessage());
+        }
+    }
+
+    private String format(double hodnota) {
+        return String.format(new Locale("cs", "CZ"), "%.2f", hodnota);
+    }
 
 
 }

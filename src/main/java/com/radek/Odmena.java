@@ -41,6 +41,18 @@ public class Odmena {
         return spotreba;
     }
 
+    public double getNormaA() {
+        return normaA;
+    }
+
+    public double getNormaB() {
+        return normaB;
+    }
+
+    public double getRozdil() {
+        return rozdil;
+    }
+
     @Override
     public String toString() {
         return String.format("%-25s %10.2f Kč   %s   tonáž: %6.2f t   spotřeba: %6.2f l/100km   norma: %5.2f-%5.2f  rozdil: %6.2f l/100km ujeto: %10.2f km ",
