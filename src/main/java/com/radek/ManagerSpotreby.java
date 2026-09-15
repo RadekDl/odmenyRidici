@@ -15,9 +15,9 @@ public class ManagerSpotreby {
     private List<Tonaz> tonazList = new ArrayList<>();
     private List<Odmena> odmenaList = new ArrayList<>();
 
-    public List<Ridic> getRidicList() {
-        return ridicList;
-    }
+//    public List<Ridic> getRidicList() {
+//        return ridicList;
+//    }
 
     public void pridatAuto(Auto auto) {
         for (Auto a : autoList) {
@@ -361,11 +361,11 @@ public class ManagerSpotreby {
         double bazeOdmeny = 0;
         if (spotreba < normaA) {
             double usporeno = normaA - spotreba;
-            if (usporeno <= 0.5) {
+            if (usporeno <= Setting.USPORENO_A) {
                 bazeOdmeny = Setting.ODMENA_TEZKA_SPOTREBA_A; // 500
-            } else if (usporeno <= 1.0) {
+            } else if (usporeno <= Setting.USPORENO_B) {
                 bazeOdmeny = Setting.ODMENA_TEZKA_SPOTREBA_B; // 1000
-            } else if (usporeno <= 1.5) {
+            } else if (usporeno <= Setting.USPORENO_C) {
                 bazeOdmeny = Setting.ODMENA_TEZKA_SPOTREBA_C; // 1500
             } else {
                 bazeOdmeny = Setting.ODMENA_TEZKA_SPOTREBA_D; // 2000

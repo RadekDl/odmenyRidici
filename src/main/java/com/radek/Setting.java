@@ -67,6 +67,10 @@ public class Setting {
     public static final double UJETE_KM_A = 7000;
     public static final double UJETE_KM_B = 10000;
 
+    public static final double USPORENO_A = 0.5;
+    public static final double USPORENO_B = 1;
+    public static final double USPORENO_C = 1.5;
+
 
 
 
