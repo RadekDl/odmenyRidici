@@ -55,7 +55,7 @@ public class ManagerSpotreby {
     }
 
     public Ridic najdiRidiceDleJmena(String jmeno) {
-        String hledane = jmeno.trim().replace('\u00A0', ' ');
+        String hledane = jmeno.replace('\u00A0', ' ').trim();
         for (Ridic r : ridicList) {
             String existujici = r.getJmeno().trim().replace('\u00A0', ' ');
             if (existujici.equalsIgnoreCase(hledane)) {
@@ -95,7 +95,7 @@ public class ManagerSpotreby {
                     continue;
                 }
 
-                String jmeno = sloupce[0].trim();
+                String jmeno = sloupce[0].replace('\u00A0', ' ').trim();
                 String interniCislo = sloupce[1].trim();
                 String kmText = sloupce[3].trim().replace(",", ".");
 
@@ -267,7 +267,16 @@ public class ManagerSpotreby {
         return 0;
     }
 
-    private double[] najdiNormu(String model, double tonaz) {
+    private boolean jeZimniMesic(String mesic){
+        if (mesic == null) return false;
+        String m = mesic.trim().toLowerCase();
+        for (String zimni : Setting.ZIMNI_MESICE){
+            if (zimni.equals(m))return true;
+        }
+        return false;
+    }
+
+    private double[] najdiNormu(String model, double tonaz, String mesic) {
         String modelLower = model.toLowerCase();
         boolean maTC = modelLower.contains("tc");
         boolean maTandem = modelLower.contains("tandem");
@@ -307,6 +316,11 @@ public class ManagerSpotreby {
             };
         }
 
+        if (jeZimniMesic(mesic)) {
+            for (int i = 0; i < sada.length; i++) {
+                sada[i] += 0.5;
+            }
+        }
 
         int index;
         if (tonaz < Setting.VAHA_NAKLADU_B) {
@@ -343,7 +357,7 @@ public class ManagerSpotreby {
         }
 
         // 4. Podle modelu a tonáže vybrat normu (A/B pár)
-        double[] norma = najdiNormu(auto.getModel(), tonaz);
+        double[] norma = najdiNormu(auto.getModel(), tonaz, mesic);
         double normaA = norma[0];
         double normaB = norma[1];
 
@@ -444,6 +458,8 @@ public class ManagerSpotreby {
     private String format(double hodnota) {
         return String.format(new Locale("cs", "CZ"), "%.2f", hodnota);
     }
+
+
 
 
 }

@@ -1,7 +1,15 @@
 package com.radek;
 
 public class Setting {
+
+    public static final String[] MESICE = {
+            "leden", "únor", "březen","duben", "květen","červen","červenec",
+            "srpen", "září", "říjen", "listopad", "prosinec"
+    };
+    public static final String[] ZIMNI_MESICE = {"listopad", "prosinec", "leden", "únor"};
+
     public static final String ODDELOVAC =";";
+
     public static final double NORMA_VOLVO_A = 26;
     public static final double NORMA_VOLVO_B = 27.5;
     public static final double NORMA_VOLVO_C = 26.5;
