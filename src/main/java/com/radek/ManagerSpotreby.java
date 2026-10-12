@@ -432,11 +432,12 @@ public class ManagerSpotreby {
                 o2.getRidic().getJmeno()));
 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(cesta))) {
-            writer.write("Jméno;Odměna;Měsíc;Tonáž;Spotřeba;NormaA;NormaB;Rozdíl;UjetéKm");
+            writer.write("Jméno;Interní číslo; Odměna;Měsíc;Tonáž;Spotřeba;NormaA;NormaB;Rozdíl;UjetéKm");
             writer.newLine();
 
             for (Odmena o : odmenaList) {
                 String radek = o.getRidic().getJmeno() + ";"
+                        + o.getRidic().getAuto().getInterniCislo()+";"
                         + format(o.getOdmena()) + ";"
                         + o.getMesic() + ";"
                         + format(o.getTonaz()) + ";"
